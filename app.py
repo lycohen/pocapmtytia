@@ -1,6 +1,5 @@
 import os
 
-from PIL import Image
 from flask import Flask
 import random   
 import time
