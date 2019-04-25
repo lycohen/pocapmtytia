@@ -8,6 +8,7 @@ from elasticapm.contrib.flask import ElasticAPM
 app = Flask(__name__)
 os.environ['http_proxy']=''
 os.environ['https_proxy']=''
+os.environ['no_proxy']='.bancogalicia.com.ar,.cluster.local,.svc,10.0.68.0/24,10.0.68.1,10.0.68.2,10.0.68.3,10.254.128.0/18,10.254.128.1,10.254.192.0/18,127.0.0.1,169.254.169.254,api-ocp-lab-internal.bancogalicia.com.ar,localhost,lookubglus01.bancogalicia.com.ar,lookubglus02.bancogalicia.com.ar,lookubglus03.bancogalicia.com.ar,lookubinf01.bancogalicia.com.ar,lookubinf02.bancogalicia.com.ar,lookubinf03.bancogalicia.com.ar,lookubmas01.bancogalicia.com.ar,lookubmas02.bancogalicia.com.ar,lookubmas03.bancogalicia.com.ar,lookubnod02.bancogalicia.com.ar,lookubnod03.bancogalicia.com.ar,registry.redhat.io,*.bancogalicia.com.ar'
 
 
 app.config['ELASTIC_APM'] = {
