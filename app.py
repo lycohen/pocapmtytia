@@ -6,6 +6,8 @@ import time
 from elasticapm.contrib.flask import ElasticAPM
 
 app = Flask(__name__)
+os.environ['http_proxy']=''
+os.environ['https_proxy']=''
 
 
 app.config['ELASTIC_APM'] = {
