@@ -11,7 +11,7 @@ app = Flask(__name__)
 app.config['ELASTIC_APM'] = {
     # allowed app_name chars: a-z, A-Z, 0-9, -, _, and space from elasticapm.contrib.flask
     'DEBUG': True,
-    'SERVER_URL': 'http://elastic01.bancogalicia.com.ar',
+    'SERVER_URL': 'http://elastic01.bancogalicia.com.ar:8200',
     'SERVICE_NAME': 'pythonpoc',
     'TRACES_SEND_FREQ': 5,
     'FLUSH_INTERVAL': 1, # 2.x
