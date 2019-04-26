@@ -2,7 +2,7 @@ import os
 
 #from PIL import Image
 from flask import Flask,Response,send_from_directory
-import random   
+import random
 import time
 from elasticapm.contrib.flask import ElasticAPM
 
@@ -19,6 +19,12 @@ app.config['ELASTIC_APM'] = {
     'MAX_QUEUE_SIZE': 1, # 2.x
 }
 
+os.environ['http_proxy'] = 'http://app-proxy.bancogalicia.com.ar:80'
+os.environ['https_proxy'] = 'http://app-proxy.bancogalicia.com.ar:80'
+os.environ['HTTP_PROXY']='http://app-proxy.bancogalicia.com.ar:80'
+os.environ['HTTPS_PROXY']='http://app-proxy.bancogalicia.com.ar:80'
+os.environ['no_proxy']='.bancogalicia.com.ar'
+os.environ['NO_PROXY']='.bancogalicia.com.ar'
 apm = ElasticAPM(app)
 
 @app.route('/hello_world')
@@ -27,8 +33,8 @@ def hello_world():
     #return 'Hello {}!\n'.format(target)
     return 'TYT-IA POC Observability'
 #def show_import():
-#	im = Image.Open('images/logo.jpg')
-#	im.show()
+#       im = Image.Open('images/logo.jpg')
+#       im.show()
 @app.route('/health')
 def getSaludRND():
     i=random.randint(0,100)
@@ -38,9 +44,9 @@ def getSaludRND():
     if (i>67):
         return 'DOWN\n'
     else:
-        return 'UP\n'    
+        return 'UP\n'
 
-@app.route('/error')       
+@app.route('/error')
 def forceError():
     try:
         a=1/0
@@ -50,13 +56,13 @@ def forceError():
         #este ok
         apm.capture_exception()
         return str(err)
-    
+
 @app.route('/<path:filename>')
 def serve_static(filename):
     root_dir = os.path.dirname(os.getcwd())
     print (root_dir)
-    return send_from_directory(os.path.join(root_dir), filename)
-    #return app.send_static_file('home.html')    
+    return send_from_directory(os.path.join(root_dir,'src'), filename)
+    #return app.send_static_file('home.html')
 
 
 if __name__ == "__main__":
