@@ -19,12 +19,12 @@ app.config['ELASTIC_APM'] = {
     'MAX_QUEUE_SIZE': 1, # 2.x
 }
 
-os.environ['http_proxy'] = 'http://app-proxy.bancogalicia.com.ar:80'
-os.environ['https_proxy'] = 'http://app-proxy.bancogalicia.com.ar:80'
-os.environ['HTTP_PROXY']='http://app-proxy.bancogalicia.com.ar:80'
-os.environ['HTTPS_PROXY']='http://app-proxy.bancogalicia.com.ar:80'
-os.environ['no_proxy']='.bancogalicia.com.ar'
-os.environ['NO_PROXY']='.bancogalicia.com.ar'
+#os.environ['http_proxy'] = 'http://app-proxy.bancogalicia.com.ar:80'
+#os.environ['https_proxy'] = 'http://app-proxy.bancogalicia.com.ar:80'
+#os.environ['HTTP_PROXY']='http://app-proxy.bancogalicia.com.ar:80'
+#os.environ['HTTPS_PROXY']='http://app-proxy.bancogalicia.com.ar:80'
+#os.environ['no_proxy']='.bancogalicia.com.ar'
+#os.environ['NO_PROXY']='.bancogalicia.com.ar'
 apm = ElasticAPM(app)
 
 @app.route('/hello_world')
