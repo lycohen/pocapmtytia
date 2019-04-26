@@ -11,10 +11,21 @@
 Prueba TYT-IA POC APM - RUM
 <script src="elastic-apm-rum.umd.min.js" crossorigin></script>
 <script>
-  elasticApm.init({
-    serviceName: 'pythonpoc',
+  var apm=elasticApm.init({
+    serviceName: 'pythonpoc-rum-priv-cloud',
     serverUrl: 'http://delasticsearch01.bancogalicia.com.ar:8200',
   })
+  apm.setInitialPageLoadName("Pagina de Prueba")
+  transaction = apm.getCurrentTransaction();
+  transaction.mark("Marca")
+  apm.startSpan("Paso por aca","mark")
+  apm.startSpan("Me voy de  aca","mark")
+  apm.addTags({ "canal": "TYTIA" })
+  apm.addTags({ "segmento": "basico" })
+  apm.captureError(new Error("divide by zero"))
+  apm.setUserContext({"username":"123456","email":"123456@google.com"} )
 </script>
 </body>
 </html>
+
+
