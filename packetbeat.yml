@@ -43,6 +43,6 @@ processors:
 - add_cloud_metadata: ~
 
 output.elasticsearch:
-  hosts: '${ELASTICSEARCH_HOSTS:elastic01.bancogalicia.com.ar:9200}'
-  username: '${ELASTICSEARCH_USERNAME:logstash_internal}'
-  password: '${ELASTICSEARCH_PASSWORD:Galicia2017}'
+  hosts: '${ELASTICSEARCH_HOSTS:xxxxxxxxxxxxxx.xxxxxxxxxxxxxxxx.xxxxxxxxxxx.xxxxxxxxxxx:9200}'
+  username: '${ELASTICSEARCH_USERNAME:xxxxxxxxxxx}'
+  password: '${ELASTICSEARCH_PASSWORD:xxxxxxxxxxxxxxxxxx}'
