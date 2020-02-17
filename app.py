@@ -12,19 +12,13 @@ app = Flask(__name__)
 app.config['ELASTIC_APM'] = {
     # allowed app_name chars: a-z, A-Z, 0-9, -, _, and space from elasticapm.contrib.flask
     'DEBUG': True,
-    'SERVER_URL': 'http://delasticsearch01.bancogalicia.com.ar:8200',
+    'SERVER_URL': 'http://xxxxxxxxxxx.xxxxxxxxxxx.xxxxxxxxxxxxxx.xxxxxxxxxxxxxxxx:8200',
     'SERVICE_NAME': 'pythonpoc',
     'TRACES_SEND_FREQ': 5,
     'FLUSH_INTERVAL': 1, # 2.x
     'MAX_QUEUE_SIZE': 1, # 2.x
 }
 
-#os.environ['http_proxy'] = 'http://app-proxy.bancogalicia.com.ar:80'
-#os.environ['https_proxy'] = 'http://app-proxy.bancogalicia.com.ar:80'
-#os.environ['HTTP_PROXY']='http://app-proxy.bancogalicia.com.ar:80'
-#os.environ['HTTPS_PROXY']='http://app-proxy.bancogalicia.com.ar:80'
-#os.environ['no_proxy']='.bancogalicia.com.ar'
-#os.environ['NO_PROXY']='.bancogalicia.com.ar'
 apm = ElasticAPM(app)
 
 @app.route('/hello_world')
